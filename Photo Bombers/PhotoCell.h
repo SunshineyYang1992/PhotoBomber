@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  PhotoCell.h
 //  Photo Bombers
 //
 //  Created by Sunshine Yang on 17/9/15.
@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@interface PhotoCell : UICollectionViewCell
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@property (nonatomic,strong) UIImageView *imageView;
 
-@property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic) NSDictionary *photo;
 
 @end
-

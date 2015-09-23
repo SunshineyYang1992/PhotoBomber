@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9UM-Yb-bfM">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--Photos Collection View Controller-->
+        <scene sceneID="efT-nm-2H4">
+            <objects>
+                <viewController id="ga6-fX-zad" customClass="PhotosCollectionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dba-Sf-LTm"/>
+                        <viewControllerLayoutGuide type="bottom" id="Q8p-ul-oVE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PKw-7v-iso">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PMQ-OH-PKK">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="enz-a7-ekx"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sSf-QU-zvE">
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="q8o-We-A9h">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="6V3-ci-khB">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ga6-fX-zad" id="3VR-dE-dSg"/>
+                                    <outlet property="delegate" destination="ga6-fX-zad" id="hlA-A9-yRt"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="sSf-QU-zvE" secondAttribute="trailing" id="72o-LN-PaP"/>
+                            <constraint firstItem="PMQ-OH-PKK" firstAttribute="top" secondItem="dba-Sf-LTm" secondAttribute="bottom" id="NMy-9d-W2O"/>
+                            <constraint firstItem="sSf-QU-zvE" firstAttribute="leading" secondItem="PKw-7v-iso" secondAttribute="leading" id="Ras-aW-35y"/>
+                            <constraint firstAttribute="trailing" secondItem="PMQ-OH-PKK" secondAttribute="trailing" id="YLe-DV-J0R"/>
+                            <constraint firstItem="Q8p-ul-oVE" firstAttribute="top" secondItem="sSf-QU-zvE" secondAttribute="bottom" id="Ykt-gn-O4C"/>
+                            <constraint firstItem="sSf-QU-zvE" firstAttribute="top" secondItem="PMQ-OH-PKK" secondAttribute="bottom" id="b6x-Pj-sEu"/>
+                            <constraint firstItem="PMQ-OH-PKK" firstAttribute="leading" secondItem="PKw-7v-iso" secondAttribute="leading" id="mRT-hU-XOd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="C89-Ks-xVS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="uDX-Fv-G2T">
+                            <connections>
+                                <action selector="cameraDidTapped:" destination="ga6-fX-zad" id="jmz-6O-dGM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="sSf-QU-zvE" id="AFk-HG-T3q"/>
+                        <outlet property="searchBarContainer" destination="PMQ-OH-PKK" id="eVE-UA-OE1"/>
+                        <outlet property="searchDisplayController" destination="zOG-mx-chx" id="Tmf-fs-B7a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pzo-X3-cSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="zOG-mx-chx">
+                    <connections>
+                        <outlet property="delegate" destination="ga6-fX-zad" id="D9i-DW-NOs"/>
+                        <outlet property="searchContentsController" destination="ga6-fX-zad" id="K0O-e0-t38"/>
+                        <outlet property="searchResultsDataSource" destination="ga6-fX-zad" id="4RI-gL-6VH"/>
+                        <outlet property="searchResultsDelegate" destination="ga6-fX-zad" id="EMk-qW-z4Q"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="899" y="349"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9Qu-SR-Tq9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9UM-Yb-bfM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oYQ-GF-RY3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ga6-fX-zad" kind="relationship" relationship="rootViewController" id="jOU-Ix-aqz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BNT-nh-tDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="209" y="349"/>
+        </scene>
+    </scenes>
+</document>

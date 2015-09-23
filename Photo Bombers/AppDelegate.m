@@ -2,11 +2,13 @@
 //  AppDelegate.m
 //  Photo Bombers
 //
-//  Created by Sunshine Yang on 6/5/15.
+//  Created by Sunshine Yang on 17/9/15.
 //  Copyright (c) 2015 SunshineYang. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "PhotosViewController.h"
+#import <SimpleAuth/SimpleAuth.h>
 
 @interface AppDelegate ()
 
@@ -16,7 +18,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// Override point for customization after application launch.
+	
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+	SimpleAuth.configuration[@"instagram"] = @{
+				   @"client_id" : @"18273425227e4d49aebf13cfc66d8daa",
+				   SimpleAuthRedirectURIKey : @"http://sunshineyang.com/"
+				   };
 	return YES;
 }
 
